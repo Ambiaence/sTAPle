@@ -6,12 +6,12 @@ from kivy.uix.image import Image
 from kivy.uix.button import Button
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.textinput import TextInput
+
 from kivy.core.audio import SoundLoader
 
 class Staple(App):
     def build(self):
         self.sound = SoundLoader.load('mytest.wav')
-        self.sound_two = SoundLoader.load('mytest.wav')
         self.playing = True
 
         self.window = GridLayout()
@@ -55,11 +55,9 @@ class Staple(App):
         return self.window
 
     def play(self, value):
-        self.sound.play()
-        Clock.schedule_once(self.play_two, 0.5)
-
-    def play_two(self, value):
-        self.sound_two.play()
+        if self.playing == True:
+            self.sound.play()
+            Clock.schedule_interval(self.play, 0.5)
 
     def stop(self, value):
         self.playing = False
