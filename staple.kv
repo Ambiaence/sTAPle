@@ -1,10 +1,13 @@
-<Marker>:
+<MarkerPage>:
 	BoxLayout:
+		id: vertical_layout
 		orientation: 'vertical'
 		BoxLayout:
+			size_hint: 1, 0.2
 			orientation: 'horizontal'	
 			Button:
 				text: "<<"
+				on_press: root.draw_drawing_board()
 				size_hint: 0.15, 1
 			Button:
 				text: "<<"
@@ -22,8 +25,12 @@
 				text: ">>"
 				size_hint_x: 0.15
 		FloatLayout:
-			text: "NIce"
+			size_hint: 1, 0.3
+			id: drawing_board
+			canvas:	
 		Button:
+			size_hint: 1,0.25
 			text: "PlaceHolder"
 		Button:
+			size_hint: 1,0.25
 			text: "Placeholder"
